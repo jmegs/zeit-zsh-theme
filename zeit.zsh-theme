@@ -1,6 +1,5 @@
 local resetColor="%{$reset_color%}"
-# local logo="%{$fg_bold[white]%}▲$resetColor$resetColor"
-local logo="%{$fg_bold[white]%}»$resetColor$resetColor"
+local logo="%{$fg_bold[white]%}▲$resetColor$resetColor"
 local hostname=`hostname`
 local dir="%{$fg_bold[white]%}%c$resetColor$resetColor"
 

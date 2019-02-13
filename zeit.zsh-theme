@@ -45,8 +45,8 @@ function git_prompt() {
 }
 
 if [[ -n $SSH_CONNECTION ]]; then
-  hostname = %B%F%{red}%n@%m%f%b
-  PROMPT='$logo ($hostname) $dir $(git_prompt)'
+  hostname = %n@%m
+  PROMPT='$logo %B%F{red}($hostname)%f%b $dir $(git_prompt)'
 else
   PROMPT='$logo $dir $(git_prompt)'
 fi

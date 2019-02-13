@@ -41,24 +41,11 @@ function git_prompt() {
       echo "$GIT_PROMPT_PREFIX$GIT_PROMPT_CLEAN$branch$GIT_PROMPT_SUFFIX"
     fi
   fi
+
 }
 
-function user_host() {
-  if [[ -n SSH_CONNECTION ]]; then
-    local user_string
-    if [[ $USER == 'root' ]]; then
-      user_string="%B%F{red}%n%f%b"
-    else
-      user_string="%B%F{green}%n%f%b"
-    fi
-    echo "$user_string @ %m"
-  else
-    echo ''
-  fi
-}
-
-# if [[ -n $SSH_CONNECTION ]]; then
-#   PROMPT='$logo ($hostname) $dir $(git_prompt)'
-# else
-  PROMPT='$logo $(user_host) $dir $(git_prompt)'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  PROMPT='$logo ($hostname) $dir $(git_prompt)'
+else
+  PROMPT='$logo $dir $(git_prompt)'
+fi

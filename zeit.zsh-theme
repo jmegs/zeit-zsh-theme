@@ -1,6 +1,6 @@
 local resetColor="%{$reset_color%}"
 local logo="%{$fg_bold[white]%}▲$resetColor$resetColor"
-local hostname=`hostname`
+# local hostname=`hostname`
 local dir="%{$fg_bold[white]%}%c$resetColor$resetColor"
 
 GIT_PROMPT_PREFIX="[%{$fg_bold[white]%}"
@@ -45,6 +45,7 @@ function git_prompt() {
 }
 
 if [[ -n $SSH_CONNECTION ]]; then
+  hostname = %B%F%{red}%n@%m%f%b
   PROMPT='$logo ($hostname) $dir $(git_prompt)'
 else
   PROMPT='$logo $dir $(git_prompt)'
